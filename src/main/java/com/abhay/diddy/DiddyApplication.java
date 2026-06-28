@@ -9,5 +9,4 @@ public class DiddyApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(DiddyApplication.class, args);
 	}
-
 }
