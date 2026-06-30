@@ -1,4 +1,4 @@
-package com.abhay.diddy.data;
+package com.abhay.diddy.temp;
 
 public class Person {
     private String name;
