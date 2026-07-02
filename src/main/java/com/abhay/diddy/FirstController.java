@@ -49,6 +49,10 @@ public class FirstController {
     }
 
     //updating a teacher
+    @PutMapping("/updateteacher")
+    public Teachers updateTeacher(@RequestBody Teachers updating_teachers){
+        return teachersService.updateTeacherByID(updating_teachers.getID(), updating_teachers);
+    }
 
     //deleting a teacher
 

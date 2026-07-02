@@ -18,7 +18,27 @@ public class TeachersService {
     }
 
     public List<Teachers> getAllTeachers(){
+
+        //if wanna find by id
+        //teachersRepository.findAllById(342).orElse(null);
+
         return teachersRepository.findAll();
     }
 
+    public Teachers updateTeacherByID(Long ID, Teachers updating_teacher){
+
+        Teachers findTeacher = teachersRepository.findById(ID).orElse(null);
+
+        if(findTeacher==null){
+            return null;
+        }
+
+        findTeacher.setName(updating_teacher.getName());
+        findTeacher.setMarried(updating_teacher.isMarried());
+        findTeacher.setSalary(updating_teacher.getSalary());
+
+        teachersRepository.save(findTeacher);
+
+        return findTeacher;
+    }
 }
