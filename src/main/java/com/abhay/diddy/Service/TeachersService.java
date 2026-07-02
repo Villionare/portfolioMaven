@@ -41,4 +41,16 @@ public class TeachersService {
 
         return findTeacher;
     }
+
+    public String deleteTeacher(Long id){
+
+
+        if (!teachersRepository.existsById(id)) {
+            return "Teacher not found";
+        }
+
+        teachersRepository.deleteById(id);
+
+        return "Deletion Done";
+    }
 }

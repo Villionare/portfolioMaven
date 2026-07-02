@@ -1,4 +1,4 @@
-package com.abhay.diddy;
+package com.abhay.diddy.Controller;
 
 import com.abhay.diddy.Entity.Student;
 import com.abhay.diddy.Entity.Teachers;
@@ -9,19 +9,14 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-public class FirstController {
+public class RESTController {
 
     private final StudentService service;
     private final TeachersService teachersService;
 
-    public FirstController(StudentService service, TeachersService teachersService) {
+    public RESTController(StudentService service, TeachersService teachersService) {
         this.service = service;
         this.teachersService = teachersService;
-    }
-
-    @GetMapping("/")
-    public String home(){
-        return "Enter into the world of Abhay Singh";
     }
 
     //getting the student with a specific roll no.
@@ -52,6 +47,12 @@ public class FirstController {
     @PutMapping("/updateteacher")
     public Teachers updateTeacher(@RequestBody Teachers updating_teachers){
         return teachersService.updateTeacherByID(updating_teachers.getID(), updating_teachers);
+    }
+
+    @DeleteMapping("/deleteteacher")
+    public String deleteTeacher(@RequestBody Teachers teachers){
+
+        return teachersService.deleteTeacher(teachers.getID());
     }
 
     //deleting a teacher
