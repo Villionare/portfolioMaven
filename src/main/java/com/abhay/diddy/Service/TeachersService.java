@@ -5,6 +5,8 @@ import com.abhay.diddy.Repository.TeachersRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class TeachersService {
 
@@ -14,4 +16,9 @@ public class TeachersService {
     public Teachers addTeacher(Teachers teacher){
         return teachersRepository.save(teacher);
     }
+
+    public List<Teachers> getAllTeachers(){
+        return teachersRepository.findAll();
+    }
+
 }

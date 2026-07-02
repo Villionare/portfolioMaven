@@ -6,6 +6,8 @@ import com.abhay.diddy.Service.StudentService;
 import com.abhay.diddy.Service.TeachersService;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 public class FirstController {
 
@@ -34,10 +36,22 @@ public class FirstController {
         return "did it";
     }
 
+    //adding a teacher
     @PostMapping("/addteacher")
     public Teachers addTeachers(@RequestBody Teachers teachers){
         return teachersService.addTeacher(teachers);
     }
+
+    //getting a teacher
+    @GetMapping("/gettechers")
+    public List<Teachers> getTeachers(){
+        return teachersService.getAllTeachers();
+    }
+
+    //updating a teacher
+
+    //deleting a teacher
+
 
 //    @GetMapping("/path/{n}")
 //    public int pathVar(@PathVariable int n){
