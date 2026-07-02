@@ -1,16 +1,20 @@
 package com.abhay.diddy;
 
 import com.abhay.diddy.Entity.Student;
+import com.abhay.diddy.Entity.Teachers;
 import com.abhay.diddy.Service.StudentService;
+import com.abhay.diddy.Service.TeachersService;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class FirstController {
 
     private final StudentService service;
+    private final TeachersService teachersService;
 
-    public FirstController(StudentService service) {
+    public FirstController(StudentService service, TeachersService teachersService) {
         this.service = service;
+        this.teachersService = teachersService;
     }
 
     @GetMapping("/")
@@ -28,6 +32,11 @@ public class FirstController {
     public String addStudent(@RequestBody Student student){
         service.addStudent(student);
         return "did it";
+    }
+
+    @PostMapping("/addteacher")
+    public Teachers addTeachers(@RequestBody Teachers teachers){
+        return teachersService.addTeacher(teachers);
     }
 
 //    @GetMapping("/path/{n}")

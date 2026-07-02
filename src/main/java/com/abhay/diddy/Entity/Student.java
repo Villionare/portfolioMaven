@@ -9,6 +9,7 @@ public class Student {
     @Id //it tell this is id or primary key
     @GeneratedValue(strategy = GenerationType.IDENTITY) //its the kind of id
     private Long id;
+
     private String name;
     private int age;
     private String course;
