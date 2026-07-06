@@ -51,7 +51,6 @@ public class RESTController {
 
     @DeleteMapping("/deleteteacher")
     public String deleteTeacher(@RequestBody Teachers teachers){
-
         return teachersService.deleteTeacher(teachers.getID());
     }
 

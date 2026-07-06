@@ -1,11 +1,404 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abhay Singh — Full-Stack Developer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        ink: '#14151A',
+                        paper: '#FAFAF7',
+                        coral: '#E2694B',
+                        teal: '#6FA8A3',
+                        mustard: '#E8A94C',
+                        slate: '#53565F',
+                    },
+                    fontFamily: {
+                        display: ['"Space Grotesk"', 'sans-serif'],
+                        body: ['"Inter"', 'sans-serif'],
+                        mono: ['"JetBrains Mono"', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html { scroll-behavior: smooth; }
+        body { background: #FAFAF7; }
+        .reveal { opacity: 0; transform: translateY(16px); transition: opacity .6s ease, transform .6s ease; }
+        .reveal.show { opacity: 1; transform: translateY(0); }
+        .chip { border: 1px solid #14151A20; }
+        .seam { background: linear-gradient(180deg, #E2694B 0%, #E8A94C 33%, #6FA8A3 66%, #14151A 100%); }
+        ::selection { background: #E8A94C; color: #14151A; }
+        a:focus-visible, button:focus-visible { outline: 2px solid #E2694B; outline-offset: 3px; }
+        @media (prefers-reduced-motion: reduce) {
+            .reveal { transition: none; opacity: 1; transform: none; }
+        }
+    </style>
 </head>
-<body>
+<body class="font-body text-ink bg-paper antialiased">
 
+<!-- NAV -->
+<header class="bg-ink text-white sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-6 md:px-10 h-20 flex items-center justify-between">
+        <a href="#top" class="flex items-center gap-3 group">
+            <img src="../static/Images/ddll.png" class="w-10 h-10 rounded-full flex items-center justify-center font-display font-bold text-sm">
+            <span class="font-mono text-xs tracking-widest text-white/50 hidden sm:block">/ abhay singh</span>
+        </a>
+        <nav class="hidden md:flex items-center gap-10 font-display text-sm">
+            <a href="#about" class="hover:text-mustard transition-colors">about</a>
+            <a href="#work" class="hover:text-mustard transition-colors">projects</a>
+            <a href="#skills" class="hover:text-mustard transition-colors">skills</a>
+            <a href="#experience" class="hover:text-mustard transition-colors">experience</a>
+            <a href="#contact" class="hover:text-mustard transition-colors">contact</a>
+        </nav>
+        <div class="flex items-center gap-4">
+            <a href="https://linkedin.com/in/duedull" target="_blank" rel="noopener" aria-label="LinkedIn" class="hover:text-teal transition-colors">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.22 8.24h4.56V23H.22V8.24zM8.7 8.24h4.37v2.01h.06c.61-1.15 2.1-2.36 4.32-2.36 4.62 0 5.47 3.04 5.47 6.99V23h-4.56v-6.99c0-1.67-.03-3.81-2.32-3.81-2.33 0-2.69 1.82-2.69 3.69V23H8.7V8.24z"/></svg>
+            </a>
+            <a href="mailto:abhay.sensez@gmail.com" aria-label="Email" class="hover:text-coral transition-colors">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M2 4h20v16H2V4zm2 2v.01L12 13l8-6.99V6H4zm16 2.24l-7.4 6.47a1 1 0 0 1-1.2 0L4 8.24V18h16V8.24z"/></svg>
+            </a>
+            <a href="tel:+919310749050" aria-label="Phone" class="hover:text-mustard transition-colors">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.3 21 3 13.7 3 4.9c0-.6.4-1 1-1h3.4c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+            </a>
+        </div>
+    </div>
+</header>
+
+<!-- HERO -->
+<section id="top" class="relative overflow-hidden">
+
+    <!-- ========================= -->
+    <!-- Desktop Background -->
+    <!-- ========================= -->
+    <div class="absolute inset-0 hidden lg:block overflow-hidden">
+        <img
+                src="../static/Images/hero_one.png"
+                alt="Abhay Singh"
+                class="w-full h-full object-cover object-center scale-[1.45]"
+        >
+    </div>
+
+    <!-- Desktop Overlay -->
+    <div class="absolute inset-0 hidden lg:block bg-gradient-to-r from-black/60 via-transparent to-black/60"></div>
+
+    <!-- ========================= -->
+    <!-- Desktop Content -->
+    <!-- ========================= -->
+    <div
+            class="relative z-10 hidden lg:flex
+               max-w-7xl mx-auto
+               h-screen
+               items-center justify-between
+               px-10">
+
+        <!-- Left -->
+        <div class="max-w-md">
+
+            <h1
+                    class="font-display font-bold text-white leading-none"
+                    style="font-size:clamp(3rem,8vw,6rem);">
+                frontend
+            </h1>
+
+            <p
+                    class="mt-6 text-white/90 leading-relaxed"
+                    style="font-size:clamp(1rem,2vw,1.1rem);">
+
+                MERN-stack fresher who creates modern,
+                responsive interfaces using React,
+                Tailwind CSS and JavaScript with a
+                strong focus on clean UI and user
+                experience.
+
+            </p>
+
+        </div>
+
+        <!-- Right -->
+        <div class="max-w-md text-right">
+
+            <h1
+                    class="font-display font-bold font-mono text-white leading-none"
+                    style="font-size:clamp(3rem,8vw,6rem);">
+
+                &lt;backend&gt;
+
+            </h1>
+
+            <p
+                    class="mt-6 text-white/90 leading-relaxed"
+                    style="font-size:clamp(1rem,2vw,1.1rem);">
+
+                Building scalable REST APIs and backend
+                services using Node.js, Express and
+                MongoDB with clean architecture and
+                optimized performance.
+
+            </p>
+
+        </div>
+
+    </div>
+
+    <!-- ========================= -->
+    <!-- Mobile Layout -->
+    <!-- ========================= -->
+    <div class="lg:hidden">
+
+        <!-- Full-width Hero Image -->
+        <div class="w-full h-[70vh] overflow-hidden">
+
+            <img
+                    src="../static/Images/hero_one.png"
+                    alt="Abhay Singh"
+                    class="w-full h-full object-cover object-center scale-[1.35]"
+            >
+
+        </div>
+
+        <!-- Text -->
+        <div class="px-6 pt-6 pb-10 space-y-8">
+
+            <!-- Frontend -->
+            <div class="text-center">
+
+                <h1
+                        class="font-display font-bold text-black leading-none"
+                        style="font-size:clamp(2.2rem,9vw,3.5rem);">
+
+                    frontend
+
+                </h1>
+
+                <p
+                        class="mt-4 text-gray-700 leading-relaxed text-[15px]">
+
+                    MERN-stack fresher who creates modern,
+                    responsive interfaces using React,
+                    Tailwind CSS and JavaScript with a
+                    strong focus on clean UI and user
+                    experience.
+
+                </p>
+
+            </div>
+
+            <!-- Backend -->
+            <div class="text-center">
+
+                <h1
+                        class="font-display font-bold font-mono text-black leading-none"
+                        style="font-size:clamp(2.2rem,9vw,3.5rem);">
+
+                    &lt;backend&gt;
+
+                </h1>
+
+                <p
+                        class="mt-4 text-gray-700 leading-relaxed text-[15px]">
+
+                    Building scalable REST APIs and backend
+                    services using Node.js, Express and
+                    MongoDB with clean architecture and
+                    optimized performance.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- CAREER OBJECTIVE STRIP -->
+<section class="bg-ink text-white/85">
+    <div class="max-w-4xl mx-auto px-6 md:px-10 py-10 text-center">
+        <p class="font-mono text-xs tracking-widest text-mustard mb-3">CAREER OBJECTIVE</p>
+        <p class="font-display text-lg md:text-xl leading-relaxed">
+            An enthusiastic BCA fresher with a strong foundation in programming and problem-solving,
+            seeking to apply technical skills, build scalable solutions, and contribute to
+            innovative software development &mdash; while never stopping learning.
+        </p>
+    </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="work" class="max-w-7xl mx-auto px-6 md:px-10 py-20">
+    <div class="flex items-center gap-4 mb-14 reveal">
+        <div class="h-px flex-1 bg-ink/15"></div>
+        <span class="font-mono text-xs tracking-[0.2em] text-slate uppercase">Some of my latest work</span>
+        <div class="h-px flex-1 bg-ink/15"></div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Project 1 -->
+        <article class="reveal group rounded-lg overflow-hidden border border-ink/10 hover:border-coral/40 transition-colors">
+            <div class="h-40 bg-gradient-to-br from-coral/20 via-mustard/20 to-white flex items-center justify-center">
+                <span class="font-display font-bold text-2xl text-ink/70">🎬 MoviesJournal</span>
+            </div>
+            <div class="p-6">
+                <h3 class="font-display font-bold text-lg mb-2">MoviesJournal</h3>
+                <p class="text-sm text-slate leading-relaxed mb-4">An entertainment website covering movies and film news, built end-to-end on the MERN stack with an interactive UI.</p>
+                <div class="flex flex-wrap gap-2 text-xs font-mono">
+                    <span class="chip px-2 py-1 rounded">MongoDB</span>
+                    <span class="chip px-2 py-1 rounded">Express</span>
+                    <span class="chip px-2 py-1 rounded">React</span>
+                    <span class="chip px-2 py-1 rounded">Node</span>
+                </div>
+            </div>
+        </article>
+
+        <!-- Project 2 -->
+        <article class="reveal group rounded-lg overflow-hidden border border-ink/10 hover:border-teal/40 transition-colors">
+            <div class="h-40 bg-gradient-to-br from-teal/20 via-mustard/10 to-white flex items-center justify-center">
+                <span class="font-display font-bold text-2xl text-ink/70">💬 ForumsBay</span>
+            </div>
+            <div class="p-6">
+                <h3 class="font-display font-bold text-lg mb-2">ForumsBay</h3>
+                <p class="text-sm text-slate leading-relaxed mb-4">A web-based discussion platform for real-time user interaction, powered by WebSockets for live conversation.</p>
+                <div class="flex flex-wrap gap-2 text-xs font-mono">
+                    <span class="chip px-2 py-1 rounded">MERN</span>
+                    <span class="chip px-2 py-1 rounded">Socket.io</span>
+                    <span class="chip px-2 py-1 rounded">Realtime</span>
+                </div>
+            </div>
+        </article>
+
+        <!-- Project 3 -->
+        <article class="reveal group rounded-lg overflow-hidden border border-ink/10 hover:border-mustard/40 transition-colors">
+            <div class="h-40 bg-gradient-to-br from-mustard/20 via-coral/10 to-white flex items-center justify-center">
+                <span class="font-display font-bold text-2xl text-ink/70">🔍 Google Homepage</span>
+            </div>
+            <div class="p-6">
+                <h3 class="font-display font-bold text-lg mb-2">Google Homepage Clone</h3>
+                <p class="text-sm text-slate leading-relaxed mb-4">A pixel-close recreation of the Google homepage, with real-time search suggestions from the official API.</p>
+                <div class="flex flex-wrap gap-2 text-xs font-mono">
+                    <span class="chip px-2 py-1 rounded">HTML</span>
+                    <span class="chip px-2 py-1 rounded">CSS</span>
+                    <span class="chip px-2 py-1 rounded">JS</span>
+                    <span class="chip px-2 py-1 rounded">Google API</span>
+                </div>
+            </div>
+        </article>
+    </div>
+</section>
+
+<!-- ABOUT / EDUCATION -->
+<section id="about" class="bg-ink/[0.03] border-y border-ink/10">
+    <div class="max-w-7xl mx-auto px-6 md:px-10 py-20 grid grid-cols-1 md:grid-cols-2 gap-14">
+        <div class="reveal">
+            <span class="font-mono text-xs tracking-widest text-coral">ABOUT</span>
+            <h2 class="font-display font-bold text-3xl md:text-4xl mt-3 mb-6">Faridabad, Haryana &mdash; building on the MERN stack.</h2>
+            <p class="text-slate leading-relaxed">
+                I'm a BCA graduate from GGSIPU with hands-on practice across the MERN stack, real-time apps,
+                and relational + document databases. I like clean code, tidy UIs, and turning a rough idea
+                into something that actually works in the browser.
+            </p>
+        </div>
+        <div class="reveal">
+            <span class="font-mono text-xs tracking-widest text-teal">EDUCATION</span>
+            <div class="mt-5 space-y-6">
+                <div class="border-l-2 border-mustard pl-5">
+                    <p class="font-display font-bold">Bachelor of Computer Applications (BCA)</p>
+                    <p class="text-sm text-slate">IITM, Janakpuri &middot; GGSIPU, Dwarka &middot; Oct 2022 &ndash; June 2025</p>
+                    <p class="text-sm text-slate">CGPA: 7.4 / 10</p>
+                </div>
+                <div class="border-l-2 border-teal pl-5">
+                    <p class="font-display font-bold">Class XII, CBSE</p>
+                    <p class="text-sm text-slate">Modern Public School, Sector 37, Faridabad &middot; 2022</p>
+                    <p class="text-sm text-slate">82.2%</p>
+                </div>
+                <div class="border-l-2 border-coral pl-5">
+                    <p class="font-display font-bold">Class X, CBSE</p>
+                    <p class="text-sm text-slate">Badri Narayan Public School, Sector 91, Faridabad &middot; 2020</p>
+                    <p class="text-sm text-slate">78.8%</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" class="max-w-7xl mx-auto px-6 md:px-10 py-20">
+    <div class="flex items-center gap-4 mb-14 reveal">
+        <div class="h-px flex-1 bg-ink/15"></div>
+        <span class="font-mono text-xs tracking-[0.2em] text-slate uppercase">Technical skills</span>
+        <div class="h-px flex-1 bg-ink/15"></div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
+        <div class="reveal">
+            <h4 class="font-display font-bold mb-3 text-coral">Languages</h4>
+            <ul class="space-y-1 text-sm text-slate font-mono"><li>JavaScript</li><li>Java</li></ul>
+        </div>
+        <div class="reveal">
+            <h4 class="font-display font-bold mb-3 text-mustard">Web Dev</h4>
+            <ul class="space-y-1 text-sm text-slate font-mono"><li>MERN Stack</li><li>Tailwind CSS</li></ul>
+        </div>
+        <div class="reveal">
+            <h4 class="font-display font-bold mb-3 text-teal">Databases</h4>
+            <ul class="space-y-1 text-sm text-slate font-mono"><li>MongoDB</li><li>PostgreSQL</li></ul>
+        </div>
+        <div class="reveal">
+            <h4 class="font-display font-bold mb-3 text-coral">Tools</h4>
+            <ul class="space-y-1 text-sm text-slate font-mono"><li>VS Code</li><li>IntelliJ IDEA</li><li>pgAdmin</li><li>Postman</li><li>Git</li><li>Google Workspace</li></ul>
+        </div>
+        <div class="reveal">
+            <h4 class="font-display font-bold mb-3 text-mustard">OS</h4>
+            <ul class="space-y-1 text-sm text-slate font-mono"><li>Fedora / Red Hat</li><li>Windows</li></ul>
+        </div>
+    </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience" class="bg-ink text-white">
+    <div class="max-w-7xl mx-auto px-6 md:px-10 py-20">
+        <span class="font-mono text-xs tracking-widest text-mustard reveal block mb-3">INTERNSHIP</span>
+        <h2 class="font-display font-bold text-3xl md:text-4xl mb-10 reveal">Web Development Intern &mdash; MakeIntern</h2>
+        <div class="reveal grid md:grid-cols-2 gap-6 max-w-3xl">
+            <div class="flex gap-3">
+                <span class="text-coral font-mono">01</span>
+                <p class="text-white/80 text-sm leading-relaxed">Built and maintained basic web pages across a 12-week engagement.</p>
+            </div>
+            <div class="flex gap-3">
+                <span class="text-teal font-mono">02</span>
+                <p class="text-white/80 text-sm leading-relaxed">Assisted in troubleshooting website issues and fixing bugs in production.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT / FOOTER -->
+<footer id="contact" class="max-w-7xl mx-auto px-6 md:px-10 py-20">
+    <div class="reveal text-center max-w-2xl mx-auto">
+        <span class="font-mono text-xs tracking-widest text-coral">GET IN TOUCH</span>
+        <h2 class="font-display font-bold text-3xl md:text-4xl mt-3 mb-6">Let's build something together.</h2>
+        <p class="text-slate mb-8">Open to opportunities in web development &mdash; frontend, backend, or full-stack.</p>
+        <div class="flex flex-wrap justify-center gap-4 font-mono text-sm">
+            <a href="mailto:abhay.sensez@gmail.com" class="chip px-5 py-3 rounded-full hover:bg-ink hover:text-white transition-colors">abhay.sensez@gmail.com</a>
+            <a href="tel:+919310749050" class="chip px-5 py-3 rounded-full hover:bg-ink hover:text-white transition-colors">+91 93107 49050</a>
+            <a href="https://linkedin.com/in/duedull" target="_blank" rel="noopener" class="chip px-5 py-3 rounded-full hover:bg-ink hover:text-white transition-colors">linkedin.com/in/duedull</a>
+        </div>
+        <p class="mt-10 text-xs text-slate/70 font-mono">Faridabad, Haryana &middot; © 2026 Abhay Singh</p>
+    </div>
+</footer>
+
+<script>
+    const revealEls = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('show'); io.unobserve(e.target); } });
+    }, { threshold: 0.15 });
+    revealEls.forEach(el => io.observe(el));
+</script>
 </body>
 </html>
